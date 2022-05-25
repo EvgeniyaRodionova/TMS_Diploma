@@ -53,10 +53,10 @@ sudo apt install -y make build-essential \
                          python-openssl \
                          git
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
 Ensure to restart your terminal after performing the above. To check this has been installed correctly, simply run:
@@ -81,28 +81,28 @@ pyenv update
 This repository uses Python 3.9, so to install the latest version of that via `pyenv`:
 
 ```shell
-pyenv install -v 3.9.9
+pyenv install -v 3.9.7
 ```
 
 This will take a few minutes as it builds Python from source. To then use this version of Python going forward:
 
 ```shell
-pyenv local 3.9.9
-pyenv global 3.9.9
+pyenv local 3.9.7
+pyenv global 3.9.7
 ```
 
 To confirm the correct python version is being used, run the following command:
 
 ```shell
 python --version
-Python 3.9.9
+Python 3.9.7
 ```
 
 To confirm the correct python version is being used by pyenv, run the following command:
 
 ```shell
 pyenv version
-3.9.9 (set by <directory>/pipeline-testing/.python-version)
+3.9.7 (set by <directory>/pipeline-testing/.python-version)
 ```
 
 ### Poetry
@@ -171,4 +171,20 @@ static code analysis tools to highlight an issue:
 
 ```shell
 poetry run pre-commit run --all-files
+```
+
+### ChromeDriver
+
+Install the latest release of the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+
+Ensure to move the ChromeDriver executable to a location available to the system path:
+
+```shell
+sudo mv ~/Downloads/chromedriver /usr/local/bin
+```
+
+To test this is installed correctly, open a new terminal and run:
+
+```
+chromedriver
 ```
