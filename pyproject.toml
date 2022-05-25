@@ -10,6 +10,7 @@ pytest = "^6.2.5"
 selenium = "^4.1.0"
 requests = "^2.27.1"
 allure-pytest = "2.9.45"
+pre-commit = "2.16.0"
 
 [tool.poetry.dev-dependencies]
 
