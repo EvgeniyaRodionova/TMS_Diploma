@@ -2,7 +2,7 @@
 .venv
 
 # github codespaces
-.devcontainer/
+.devcontainer/*
 
 # Screenshots
 screenshots/
