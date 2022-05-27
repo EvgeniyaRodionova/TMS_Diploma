@@ -188,3 +188,23 @@ To test this is installed correctly, open a new terminal and run:
 ```
 chromedriver
 ```
+
+## Generate GIT ssh key
+- ref. https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
+```
+cd ~/.ssh
+ls # check if already existed 
+ssh-keygen -t ed25519
+```
+#### Add key to github
+Navigate settings::ssh keys::add ssh key
+Paste content of 
+```
+cat /home/klapshin/.ssh/id_ed25519.pub
+```
+#### Use ssh address instead of http when clone or pull
+```
+git clone git@github.com:Orgname/repo-name.git # first time
+git remote set-url origin  git@github.com:Orgname/repo-name.git # change
+git pull # should work without any prompt
+```
