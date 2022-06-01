@@ -14,3 +14,9 @@ jobs:
       with:
         python-version: '3.9.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
     - uses: pre-commit/action@v2.0.3
+
+- repo: https://github.com/pycqa/isort
+    rev: 5.5.4
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
