@@ -200,7 +200,7 @@ ssh-keygen -t ed25519
 Navigate settings::ssh keys::add ssh key
 Paste content of 
 ```
-cat /home/klapshin/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
 ```
 #### Use ssh address instead of http when clone or pull
 ```
