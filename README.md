@@ -219,3 +219,20 @@ git clone git@github.com:Orgname/repo-name.git # first time
 git remote set-url origin  git@github.com:Orgname/repo-name.git # change
 git pull # should work without any prompt
 ```
+
+## How to add tests and commit your code into the repo
+- Setup github key (see above)
+- Clone the repository `git clone git@github.com:pythonqacourse/python-ui-framework.git`
+- Create a branch and checkout into newly created branch: `git checkout -b namesurname/22-hw-checkboxes`
+- Create a folder `/tests/namesurname/`
+- Create a file(s) in `python-ui-framework/tests/namesurname/` and `python-ui-framework/framework` Add your code into file `test_22_hw.py`
+- Check status and add/remove files from index (or use Pycharm Commit tab UI)
+- Commit the changes: `git commit -am “message”`
+- Fetch code from remote and merge it into local: `git pull origin main`
+- Update remote  `git push --set-upstream origin namesurname/22-hw-checkboxes`
+- Open https://github.com/pythonqacourse/python-ui-framework in your browser and hit Create a PR button (there should be notification for your branch)
+- Please do not merge your PR without a review! (we cannot enable branch protection in a free github organizations tariff)
+
+## How to run tests in CLI
+- `poetry run python -m pytest [options]` will temporarily activate specific environment
+- `poetry shell` will permanently activate environment
