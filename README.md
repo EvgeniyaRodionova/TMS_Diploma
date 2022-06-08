@@ -122,40 +122,51 @@ This should create a `.venv` directory at the root of the repo.
 
 ### PyCharm
 
-After opening the `pipeline-tests` repo as a project inside PyCharm, it needs attaching as a standalone project
+After opening the `my-project` repo as a project inside PyCharm, it needs attaching as a standalone project
 within PyCharm. This allows it to be assigned its own Python interpreter (i.e. the virtual environment created by
 Poetry above). To do this:
 
 - Click `File -> Open...`
-- Select the `pipeline-tests` directory
+- Select the `my-project` directory
 - Click `OK`
 - Select the `Attach` option to attach this as an additional project
 
-Once done, the `pipeline-tests` directory in the `Project` pane should be bolded.
+Once done, the `my-project` directory in the `Project` pane should be bolded.
 
-To configure the Python interpreter for the `pipeline-tests` project:
+To configure the Python interpreter for the `my-project` project:
 
 - Open the PyCharm settings dialog (`Ctrl+Alt+S`)
 - Expand the `Project` caret in the pane on the left-hand side
 - Select `Python Interpreter`
-- Select `pipeline-tests`
+- Select `my-project`
 - Click the cog on the right-hand side of the dialog
 - Select `Show All...`
 - Click `+` to add a new interpreter
 - Select the `Existing Environment` radio button
 - Click the `...` button
-- Navigate to `pipeline-tests/.venv/bin/python`
+- Navigate to `my-project/.venv/bin/python`
 - Click `OK`
-- Rename the new interpreter to `pipeline-tests` (for easier traceability)
+- Rename the new interpreter to `my-project` (for easier traceability)
 - Click `OK`
 - Click `Apply`
 
-This should have correctly configured the `pipeline-tests` project to use the Python interpreter
+This should have correctly configured the `my-project` project to use the Python interpreter
 created by Poetry. To confirm:
 
-- Open any Python file in the `pipeline-tests` project
+- Open any Python file in the `my-project` project
 - Expand the `Imports` section at the top of the file
 - All imports should be recognised and not underlined in red
+
+### VSCode 
+
+If you have Pycharm Community edition, you cannot work with WSL. One of the option might be using VSCode IDE.
+To setup VScode:
+- Install WSL extention if working with WSL https://code.visualstudio.com/docs/remote/wsl
+- Setup python interpreter https://code.visualstudio.com/docs/python/environments
+For that:
+- hit `Ctrl+Shift+P` > enter `Python: Select Interpreter` > select `Enter interpreter path` > Find your interpreter
+You can figure out interpreter path by using command `poetry run which python`
+
 
 ### Pre-commit checks
 
