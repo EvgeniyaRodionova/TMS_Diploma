@@ -1,5 +1,41 @@
-## Local Machine Installation & Configuration
+# Local Machine Installation & Configuration
 
+## Version control setup
+
+### Generate Git ssh key
+- ref. https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
+```
+cd ~/.ssh
+ls # check if already existed 
+ssh-keygen -t ed25519
+```
+### Add key to github
+Navigate settings::ssh keys::add ssh key
+Paste content of 
+```
+cat ~/.ssh/id_ed25519.pub
+```
+### Use ssh address instead of http when clone or pull
+```
+git clone git@github.com:Orgname/repo-name.git # first time
+git remote set-url origin  git@github.com:Orgname/repo-name.git # change
+git pull # should work without any prompt
+```
+
+### Workflow to work with remote VCS repo
+- Setup github key (see above)
+- Clone the repository `git clone git@github.com:pythonqacourse/python-ui-framework.git`
+- Create a branch and checkout into newly created branch: `git checkout -b namesurname/22-hw-checkboxes`
+- Create a folder `/tests/namesurname/`
+- Create a file(s) in `python-ui-framework/tests/namesurname/` and `python-ui-framework/framework` Add your code into file `test_22_hw.py`
+- Check status and add/remove files from index (or use Pycharm Commit tab UI)
+- Commit the changes: `git commit -am “message”`
+- Fetch code from remote and merge it into local: `git pull origin main`
+- Update remote  `git push --set-upstream origin namesurname/22-hw-checkboxes`
+- Open https://github.com/pythonqacourse/python-ui-framework in your browser and hit Create a PR button (there should be notification for your branch)
+- Please do not merge your PR without a review! (we cannot enable branch protection in a free github organizations tariff)
+
+## Local testing environment setup
 ### Pip
 
 Even though the package management for this repo is handled by Poetry, `pip` is still required to download and
@@ -199,40 +235,47 @@ To test this is installed correctly, open a new terminal and run:
 ```
 chromedriver
 ```
+## Docker
+This repo contains a [Dockerfile](./Dockerfile) so that the framework and tests can be run in a container within
+Jenkins. If changes are being made to this file, it is a requirement that the Docker image is built locally and the
+tests are run via that Docker image to ensure that they continue to work.
 
-## Generate GIT ssh key
-- ref. https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
-```
-cd ~/.ssh
-ls # check if already existed 
-ssh-keygen -t ed25519
-```
-#### Add key to github
-Navigate settings::ssh keys::add ssh key
-Paste content of 
-```
-cat ~/.ssh/id_ed25519.pub
-```
-#### Use ssh address instead of http when clone or pull
-```
-git clone git@github.com:Orgname/repo-name.git # first time
-git remote set-url origin  git@github.com:Orgname/repo-name.git # change
-git pull # should work without any prompt
+Before building the docker image, verify that the latest version of Docker is installed. Run:
+
+```shell
+docker --version
+Docker version 20.10.8, build 3967b7d
 ```
 
-## How to add tests and commit your code into the repo
-- Setup github key (see above)
-- Clone the repository `git clone git@github.com:pythonqacourse/python-ui-framework.git`
-- Create a branch and checkout into newly created branch: `git checkout -b namesurname/22-hw-checkboxes`
-- Create a folder `/tests/namesurname/`
-- Create a file(s) in `python-ui-framework/tests/namesurname/` and `python-ui-framework/framework` Add your code into file `test_22_hw.py`
-- Check status and add/remove files from index (or use Pycharm Commit tab UI)
-- Commit the changes: `git commit -am “message”`
-- Fetch code from remote and merge it into local: `git pull origin main`
-- Update remote  `git push --set-upstream origin namesurname/22-hw-checkboxes`
-- Open https://github.com/pythonqacourse/python-ui-framework in your browser and hit Create a PR button (there should be notification for your branch)
-- Please do not merge your PR without a review! (we cannot enable branch protection in a free github organizations tariff)
+If you have a lower version, upgrade Docker. Simply run:
 
-## How to run tests in CLI
+```shell
+sudo apt-get install docker-ce
+```
+
+To build the Docker image, run the following command from the root of this repo:
+
+```shell
+docker build -t "aut:local" .
+```
+
+# Run tests 
+See the detailed instructions in the `/tests/*/README.md` files
+
+## Via Pycharm
+Confirm that the project has been installed and PyCharm project interpreter, running configuration and environment variables has been configured correctly. 
+Use the PyCharm UI to run the test, and it should pass first time.
+
+## Via CLI
 - `poetry run python -m pytest [options]` will temporarily activate specific environment
 - `poetry shell` will permanently activate environment
+
+## Via Docker
+
+To run the tests inside a container using the image built above:
+
+```shell
+docker run [OPTIONS] aut:local /bin/bash -c "poetry run pytest"
+```
+
+
