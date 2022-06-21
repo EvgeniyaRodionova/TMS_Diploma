@@ -1,15 +1,3 @@
-### Environment Variables
-
-Please ensure to read through all the environment variables [defined here](./framework/common/env_vars.py)
-to understand what they control. Default configurations for pytest can be setup so that these do not
-need adding each time you run a specific test in PyCharm:
-
-- Click `Run -> Edit Configurations...`
-- Click `Edit configuration templates...`
-- Expand the `Python` option on the left-hand side
-- Click `pytest`
-- Add the necessary environment variables here so all new pytest configurations inherit them for free
-
 # Running Tests
 
 ### Via PyCharm
