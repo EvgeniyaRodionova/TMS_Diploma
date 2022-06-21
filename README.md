@@ -1,5 +1,6 @@
 # Prerequisites
-It is assumed that you are running tests on the Linux operating system
+It is assumed that you are running tests on the Linux operating system.
+
 Possible options includes:
 - Linux desktop (Mint Cinnamon recommended)
 - Windows 10/11 + WSL
