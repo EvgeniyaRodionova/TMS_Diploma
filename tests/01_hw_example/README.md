@@ -13,7 +13,7 @@ from the `selenium-webdriver` folder:
 ```shell
 export RUN_HEADLESS=False
 export AUT_IS_INSIDE_WSL=True # if running inside WSL
-poetry run pytest
+poetry run python -m pytest
 ```
 
 ### Via Docker
