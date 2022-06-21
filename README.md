@@ -267,7 +267,7 @@ Confirm that the project has been installed and PyCharm project interpreter, run
 Use the PyCharm UI to run the test, and it should pass first time.
 
 ## Via CLI
-- `poetry run python -m pytest [options]` will temporarily activate specific environment
+- `poetry run python -m pytest [OPTIONS]` will temporarily activate specific environment
 - `poetry shell` will permanently activate environment
 
 ## Via Docker
