@@ -294,7 +294,7 @@ docker build -t "aut:local" .
 ```
 
 # Run tests 
-See the detailed instructions in the `/tests/*/README.md` files
+See detailed instructions in the `/tests/*/README.md` files
 
 ## Via Pycharm
 Confirm that the project has been installed and PyCharm project interpreter, running configuration and environment variables has been configured correctly. 
