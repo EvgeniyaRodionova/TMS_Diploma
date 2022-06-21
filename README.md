@@ -298,18 +298,19 @@ See the detailed instructions in the `/tests/*/README.md` files
 
 ## Via Pycharm
 Confirm that the project has been installed and PyCharm project interpreter, running configuration and environment variables has been configured correctly. 
-Use the PyCharm UI to run the test, and it should pass first time.
+Use the PyCharm UI to run the test, and it should pass first time. Pycharm is automatically put root folder into `sys.path`, which updates `PYTHONPATH` and prevents ImportError
 
 ## Via CLI
+By using `python -m` we are adding root to `sys.path` see https://stackoverflow.com/questions/36022892/how-to-know-if-docker-is-already-logged-in-to-a-docker-registry-server
 - `poetry run python -m pytest [OPTIONS]` will temporarily activate specific environment
-- `poetry shell` will permanently activate environment
+- `poetry shell` will permanently activate environment, then we could run `python -m pytest [OPTIONS]`
 
 ## Via Docker
 
 To run the tests inside a container using the image built above:
 
 ```shell
-docker run [OPTIONS] aut:local /bin/bash -c "poetry run pytest"
+docker run [ENVIRONMENT_VARIABLES] aut:local /bin/bash -c "poetry run python -m pytest"
 ```
 
 
