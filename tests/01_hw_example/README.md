@@ -30,7 +30,7 @@ poetry run pytest
 
 ### Via Docker
 
-To run the tests inside a container using the image [built here](./README.md#docker):
+To run the tests inside a container using the image [built here](../../README.md#docker):
 
 ```shell
 docker run --env AUT_IS_INSIDE_WSL=True \
