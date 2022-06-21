@@ -1,3 +1,19 @@
+# Prerequisites
+It is assumed that you are running tests on the Linux operating system
+Possible options includes:
+- Linux desktop (Mint Cinnamon recommended)
+- Windows 10/11 + WSL
+- Windows 10/11 + Virtual machine
+- Mac OS
+
+### WSL setup setup 
+- Install WSL on Windows https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/
+- X-server setup to run tests in browser GUI  https://gist.github.com/KirillY/bc4253edfd62b27c452d01595d19efce
+After x-server is set, you might also need to enable `AUT_IS_INSIDE_WSL` environment variable or similar to set `DISPLAY` variable inside WSL
+
+### Credentials
+You will sometimes need credentials to actually run the tests. They could be environment variables set up in CLI or PyCharm or in Docker section below.
+
 # Local Machine Installation & Configuration
 
 ## Version control setup
@@ -192,6 +208,18 @@ created by Poetry. To confirm:
 - Open any Python file in the `my-project` project
 - Expand the `Imports` section at the top of the file
 - All imports should be recognised and not underlined in red
+
+### Environment Variables configuration in Pycharm
+
+Please ensure to read through all the environment variables [defined here](./framework/common/env_vars.py)
+to understand what they control. Default configurations for pytest can be setup so that these do not
+need adding each time you run a specific test in PyCharm:
+
+- Click `Run -> Edit Configurations...`
+- Click `Edit configuration templates...`
+- Expand the `Python` option on the left-hand side
+- Click `pytest`
+- Add the necessary environment variables here so all new pytest configurations inherit them for free
 
 ### VSCode 
 
