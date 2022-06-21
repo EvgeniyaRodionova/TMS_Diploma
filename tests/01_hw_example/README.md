@@ -24,5 +24,5 @@ To run the tests inside a container using the image [built here](../../README.md
 docker run --env AUT_IS_INSIDE_WSL=True \
            --env RUN_HEADLESS=False \
            aut:local \
-           /bin/bash -c "poetry run pytest"
+           /bin/bash -c "poetry run python -m pytest"
 ```
