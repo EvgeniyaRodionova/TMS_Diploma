@@ -269,20 +269,25 @@ This repo contains a [Dockerfile](./Dockerfile) so that the framework and tests 
 Jenkins. If changes are being made to this file, it is a requirement that the Docker image is built locally and the
 tests are run via that Docker image to ensure that they continue to work.
 
-Before building the docker image, verify that the latest version of Docker is installed. Run:
+- Before building the docker image, verify that the latest version of Docker is installed. Run:
 
 ```shell
 docker --version
 Docker version 20.10.8, build 3967b7d
 ```
 
-If you have a lower version, upgrade Docker. Simply run:
+- If you have a lower version, upgrade Docker. Simply run:
 
 ```shell
 sudo apt-get install docker-ce
 ```
+- Make sure you are connected to the Docker registry
+```shell
+docker pull hello-world
+```
+If got `Failed to lookup host: registry-1.docker.io`, login/signup into the Docker registry. For WSL, open Docker GUI and hit login button at the top right.
 
-To build the Docker image, run the following command from the root of this repo:
+- To build the Docker image, run the following command from the root of this repo:
 
 ```shell
 docker build -t "aut:local" .
