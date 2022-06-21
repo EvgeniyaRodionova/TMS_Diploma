@@ -23,12 +23,12 @@ You will sometimes need credentials to actually run the tests. They could be env
 - ref. https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
 ```
 cd ~/.ssh
-ls # check if already existed 
+ls # check if already existed
 ssh-keygen -t ed25519
 ```
 ### Add key to github
 Navigate settings::ssh keys::add ssh key
-Paste content of 
+Paste content of
 ```
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -222,7 +222,7 @@ need adding each time you run a specific test in PyCharm:
 - Click `pytest`
 - Add the necessary environment variables here so all new pytest configurations inherit them for free
 
-### VSCode 
+### VSCode
 
 If you have Pycharm Community edition, you cannot work with WSL. One of the option might be using VSCode IDE.
 To setup VScode:
@@ -293,11 +293,11 @@ If got `Failed to lookup host: registry-1.docker.io`, login/signup into the Dock
 docker build -t "aut:local" .
 ```
 
-# Run tests 
+# Run tests
 See detailed instructions in the `/tests/*/README.md` files
 
 ## Via Pycharm
-Confirm that the project has been installed and PyCharm project interpreter, running configuration and environment variables has been configured correctly. 
+Confirm that the project has been installed and PyCharm project interpreter, running configuration and environment variables has been configured correctly.
 Use the PyCharm UI to run the test, and it should pass first time. Pycharm is automatically put root folder into `sys.path`, which updates `PYTHONPATH` and prevents ImportError
 
 ## Via CLI

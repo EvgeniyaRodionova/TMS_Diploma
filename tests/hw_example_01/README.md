@@ -3,7 +3,7 @@
 ### Via PyCharm
 - Confirm that PyCharm has been configured correctly: project interpreter and environment variables
 - Navigate to any of the `test_task_<number>` files and use the PyCharm UI to run the test
-It should pass first time. 
+It should pass first time.
 
 ### Via CLI
 
