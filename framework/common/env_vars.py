@@ -26,4 +26,4 @@ def get_is_inside_wsl() -> Optional[str]:
     """
     Check if working inside WSL to set DISPLAY variable for UI tests local debug
     """
-    return _get_env_var("AUT_IS_INSIDE_WSL", default='')
+    return _get_env_var("AUT_IS_INSIDE_WSL", default="")

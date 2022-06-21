@@ -66,7 +66,7 @@ class Element:
         self._apply_style(original_style)
         return self
 
-    def wait_to_disappear(self) -> ElementType:
+    def wait_to_disappear(self: ElementType) -> ElementType:
         """
         Polls to find an invisible element. This is an element with `display: none` style or not present in the DOM.
         If a matching WebElement is found, it hydrates the web_element field of this object.
@@ -78,7 +78,7 @@ class Element:
         self._init_parent_wait()
         return self
 
-    def wait_to_find(self) -> ElementType:
+    def wait_to_find(self: ElementType) -> ElementType:
         """
         Polls to find the element using the locator defined when creating this object.
         If a matching WebElement is found, it hydrates the _web_element field of this object.

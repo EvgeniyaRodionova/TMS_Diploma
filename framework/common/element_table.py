@@ -1,4 +1,5 @@
 from typing import Callable, List
+
 from selenium.webdriver.common.by import By
 
 from framework.common.driver import Driver

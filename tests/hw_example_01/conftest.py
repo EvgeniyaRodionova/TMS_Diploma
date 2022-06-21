@@ -1,5 +1,6 @@
 import os
 import subprocess
+from typing import Generator
 
 import pytest
 
@@ -8,7 +9,7 @@ from framework.common.env_vars import get_is_inside_wsl
 
 
 @pytest.fixture(name="driver")
-def start_chrome_webdriver() -> Driver:
+def start_chrome_webdriver() -> Generator:
     """
     Configures and starts the Selenium WebDriver to run the Chrome browser.
 
@@ -19,6 +20,7 @@ def start_chrome_webdriver() -> Driver:
     driver = Driver(url="http://the-internet.herokuapp.com/")
     yield driver
     driver.close_and_quit()
+
 
 def _get_wsl_host_address() -> str:
     """
