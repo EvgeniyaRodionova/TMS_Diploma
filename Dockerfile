@@ -1,4 +1,4 @@
-FROM python:3.9.9-buster as base
+FROM python:3.9.7-buster as base
 
 ENV PIP_DEFAULT_TIMEOUT=100 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -29,6 +29,4 @@ RUN poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi
 
 # Copy the source code into the image.
-COPY framework ./framework
-COPY tests ./tests
-COPY pytest.ini .
+COPY diploma ./diploma
