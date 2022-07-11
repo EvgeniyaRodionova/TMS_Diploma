@@ -1,5 +1,5 @@
 import time
-from BaseApp import BasePage
+from framework.BaseApp import BasePage
 from selenium.webdriver.common.by import By
 
 
@@ -12,7 +12,8 @@ class Locators:
     LOCATOR_ADD_WISHLIST = (By.CLASS_NAME, "fancybox-error")
     LOCATOR_CLOSE = (By.XPATH, "//*[@id='product']/div[2]/div/div/a")
 
-class Wishlist_Helper(BasePage):
+
+class WishlistHelper(BasePage):
 
     def input_goods_name(self):
         search_field = self.find_element(Locators.LOCATOR_SEARCH_FIELD)

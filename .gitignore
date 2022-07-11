@@ -17,3 +17,8 @@ geckodriver.log
 
 .DS_Store
 .AppleDouble
+
+.pre-commit-config.yaml
+
+.github
+.pytest_cache

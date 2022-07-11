@@ -1,5 +1,5 @@
 import time
-from BaseApp import BasePage
+from framework.BaseApp import BasePage
 from selenium.webdriver.common.by import By
 
 
@@ -10,7 +10,7 @@ class Locators:
     LOCATOR_SUBMIT_LOGIN = (By.ID, "SubmitLogin")
 
 
-class Login_Helper(BasePage):
+class LoginHelper(BasePage):
 
     def sign_in_button(self):
         search_signin_button = self.find_element(Locators.LOCATOR_SIGNIN_BUTTON)

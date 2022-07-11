@@ -29,4 +29,5 @@ RUN poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi
 
 # Copy the source code into the image.
-COPY diploma ./diploma
+COPY framework ./framework
+COPY tests ./tests
