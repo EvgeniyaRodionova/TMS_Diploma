@@ -26,8 +26,5 @@ class CartHelper(BasePage):
         search_button_cart.click()
         return search_button_cart
 
-    def dress_in_cart(self):
-        search_message = self.find_element(Locators.LOCATOR_DRESS_IN_CART).text
-        assert "Product successfully added to your shopping cart" == search_message
 
 
