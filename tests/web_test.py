@@ -27,5 +27,4 @@ def test_cart_page(browser):
     cart_page.women_tab()
     cart_page.select_dress()
     cart_page.add_to_cart()
-    # cart_page.dress_in_cart()
-
+    cart_page.dress_in_cart()

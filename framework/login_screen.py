@@ -1,4 +1,3 @@
-import time
 from framework.BaseApp import BasePage
 from selenium.webdriver.common.by import By
 
@@ -21,14 +20,12 @@ class LoginHelper(BasePage):
     def enter_email(self):
         search_email_field = self.find_element(Locators.LOCATOR_EMAIL_FIELD)
         search_email_field.send_keys("evgeniya.ro.spam@gmail.com")
-        time.sleep(1.0)
         return search_email_field
 
 
     def enter_password(self):
         search_password_field = self.find_element(Locators.LOCATOR_PASSWORD_FIELD)
         search_password_field.send_keys("Mp2524483")
-        time.sleep(1.0)
         return search_password_field
 
     def submit_login(self):

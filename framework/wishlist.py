@@ -1,4 +1,3 @@
-import time
 from framework.BaseApp import BasePage
 from selenium.webdriver.common.by import By
 
@@ -18,13 +17,11 @@ class WishlistHelper(BasePage):
     def input_goods_name(self):
         search_field = self.find_element(Locators.LOCATOR_SEARCH_FIELD)
         search_field.send_keys("blouse")
-        time.sleep(1.0)
         return search_field
 
     def tap_search_icon(self):
         search_goods = self.find_element(Locators.LOCATOR_SEARCH_BUTTON)
         search_goods.click()
-        time.sleep(1.0)
         return search_goods
 
     def select_other_color(self):
@@ -39,7 +36,6 @@ class WishlistHelper(BasePage):
 
     def in_wishlist(self):
         search_message = self.find_element(Locators.LOCATOR_ADD_WISHLIST).text
-        time.sleep(1.0)
         assert "Added to your wishlist." == search_message
 
     def close_message(self):
